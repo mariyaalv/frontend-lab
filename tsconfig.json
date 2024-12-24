@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+//куда производится сборка - неважно тут (т.к. через вебпак)
+    "outDir": "./dist/",
+
+//не позволяет использовать переменные без явного указания типа
+    "noImplicitAny": true,
+    "module": "ESNext",//указываем модульную систему
+    "target": "es5",//во что будет компилироваться код
+    "jsx": "react-jsx",
+
+//позволяет компилятору обрабатывать файлы не только ts, но и js
+    "allowJs": true,
+
+//определяет, какие импорты будут (в 99% = node)
+    "moduleResolution": "node",
+
+//для абсолютного импорта
+    "baseUrl": ".",
+
+//позволяет работать с пакетами, которые используют commonJS как с обычными пакетами
+//с помощью import require() module.export
+    "esModuleInterop": true,
+//если какая-то библиотека не имеет default import,
+//лоадеры вроде ts / babel автоматически создают их
+    "allowSyntheticDefaultImports": true,
+  },
+
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
