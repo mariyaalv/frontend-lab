@@ -4,6 +4,7 @@ export interface BuildPath {
 	entry: string; //путь до энтрипойнт
 	build: string; //до папки со сборкой
 	html: string; //до файла html
+	src: string;
 }
 
 //переменные окружения

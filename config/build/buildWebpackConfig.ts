@@ -26,7 +26,7 @@ export function buildWebpackConfig(
 			rules: buildLoaders(options),
 		},
 		//чтобы не указывать расширение при импорте
-		resolve: buildResolvers(),
+		resolve: buildResolvers(options),
     //для обновления на сервере без перезапуска вебпака
 		//isDev ? => для продакш сборки это не будет запускаться
     devtool: isDev ? 'inline-source-map' : undefined,
