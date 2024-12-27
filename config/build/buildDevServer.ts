@@ -6,5 +6,6 @@ export function buildDevServer(options: BuildOptions):DevServerConfiguration {
     port: options.port,
     open: true,//автоматические открывает страницу в браузере
     historyApiFallback: true,
+    hot: true, //чтобы не обновлять при изменениях
   }
 }
