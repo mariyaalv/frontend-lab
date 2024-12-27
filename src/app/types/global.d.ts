@@ -1,6 +1,7 @@
-//глобальная деклорация типов
-//чтобы явно определить тип, который должен импортироваться
-declare module "*.scss" {
+import React from 'react';
+// глобальная деклорация типов
+// чтобы явно определить тип, который должен импортироваться
+declare module '*.module.scss' {
 	interface IClassNames {
 		[className: string]: string;
 	}
@@ -8,14 +9,14 @@ declare module "*.scss" {
 	export = classNames;
 }
 
-declare module "*.svg" {
+declare module '*.svg' {
 	const content: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
 	export default content;
 }
 
-declare module "*.png";
-declare module "*.jpg";
-declare module "*.jpeg";
+declare module '*.png';
+declare module '*.jpg';
+declare module '*.jpeg';
 
-//познакомили с переменной TS
+// познакомили с переменной TS
 declare const __IS_DEV__: boolean;
