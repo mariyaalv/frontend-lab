@@ -1,3 +1,4 @@
+/* eslint-disable no-dupe-keys */
 module.exports = {
 	// в каких средах будет выполняться код
 	env: {
@@ -5,51 +6,51 @@ module.exports = {
 		es2021: true,
 	},
 	// расширение существующих конфигов
-	extends: ["plugin:react/recommended", "airbnb"],
-	parser: "@typescript-eslint/parser",
+	extends: ['plugin:react/recommended', 'plugin:@typescript-eslint/recommended', 'airbnb'],
+	parser: '@typescript-eslint/parser',
 	parserOptions: {
 		ecmaFeatures: {
 			jsx: true,
 		},
-		ecmaVersion: "latest",
+		ecmaVersion: 'latest',
 		// позволяет использовать import/export (ES-модули)
-		sourceType: "module",
+		sourceType: 'module',
 	},
-	plugins: ["react", "@typescript-eslint"],
+	plugins: ['react', '@typescript-eslint'],
 	rules: {
 		// использовать табы вместо пробелов
-		indent: [2, "tab"],
+		indent: [2, 'tab'],
 		// отключаем правило использование табов
-		"no-tabs": 0,
-		"react/jsx-filename-extension": [
+		'no-tabs': 0,
+		'react/jsx-filename-extension': [
 			2,
-			{ extensions: [".js", ".jsx", ".tsx"] },
+			{ extensions: ['.js', '.jsx', '.tsx'] },
 		],
-		"import/no-unresolved": "off",
-		"import/prefer-default-export": "off",
+		'import/no-unresolved': 'off',
+		'import/prefer-default-export': 'off',
 		// предупреждение, если есть неиспользуемые переменные
-		"no-unused-vars": "warn",
-		"react/require-default-props": "off",
-		"react/react-in-jsx-scope": "off",
+		'no-unused-vars': 'warn',
+		'react/require-default-props': 'off',
+		'react/react-in-jsx-scope': 'off',
 		// предупреждение при спред-пропсах {...rest}
-		"react/jsx-props-no-spreading": "warn",
-		"react/function-component-definition": "off",
-		"no-shadow": "off",
-		"import/extensions": "off",
-		"import/no-extraneous-dependencies": "off",
-		"no-underscore-dangle": "off",
-		indent: "off",
-		"linebreak-style": 0,
+		'react/jsx-props-no-spreading': 'warn',
+		'react/function-component-definition': 'off',
+		'no-shadow': 'off',
+		'import/extensions': 'off',
+		'import/no-extraneous-dependencies': 'off',
+		'no-underscore-dangle': 'off',
+		indent: 'off',
+		'linebreak-style': 0,
 	},
 	globals: {
 		__IS_DEV__: true,
 	},
-	//попытка зафиксить ошибки импортов модулей стилей при сборке 
+	// попытка зафиксить ошибки импортов модулей стилей при сборке
 	overrides: [
 		{
-			files: ["*.scss", "*.module.scss"],
+			files: ['*.scss', '*.module.scss'],
 			rules: {
-				"import/no-unresolved": "off",
+				'import/no-unresolved': 'off',
 			},
 		},
 	],

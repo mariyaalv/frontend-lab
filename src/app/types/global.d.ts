@@ -1,4 +1,4 @@
-import React from 'react';
+/* eslint-disable no-undef */
 // глобальная деклорация типов
 // чтобы явно определить тип, который должен импортироваться
 declare module '*.module.scss' {
