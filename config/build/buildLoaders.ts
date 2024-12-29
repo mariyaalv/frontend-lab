@@ -4,10 +4,9 @@ import { BuildOptions } from "./types/config";
 
 export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   const babelLoader = {
-    exclude: /node_modules/,
     test: /\.(js|jsx|tsx|)$/,
+    exclude: /node_modules/,
     use: {
-      test: /\.(js|jsx|tsx|)$/,
       loader: "babel-loader",
       options: {
         presets: ["@babel/preset-env"],

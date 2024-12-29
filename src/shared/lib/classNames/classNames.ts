@@ -17,9 +17,9 @@ export function classNames(
   return [
     cls,
     ...additional.filter(Boolean),
-    Object.entries(mods)
-      .filter(([cls, value]) => Boolean(value))
-      .map(([cls, value]) => cls),
+    ...Object.entries(mods)
+      .filter(([, value]) => Boolean(value))
+      .map(([cls]) => cls),
   ].join(" ");
 }
 

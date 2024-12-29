@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-tabs */
 /* eslint-disable no-dupe-keys */
 module.exports = {
@@ -44,6 +45,7 @@ module.exports = {
 		indent: "off",
 		"linebreak-style": 0,
     "i18next/no-literal-string": ["error", { markupOnly: true }],
+    "max-len": ["error", { ignoreComments: true }],
 	},
 	globals: {
 		__IS_DEV__: true,
