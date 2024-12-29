@@ -5,7 +5,6 @@ const AboutPage = () => {
   const { t } = useTranslation("about");
   return (
     <div>
-      dfgh
       {t("О сайте")}
     </div>
   );
