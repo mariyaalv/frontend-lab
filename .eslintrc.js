@@ -5,6 +5,7 @@ module.exports = {
 	env: {
 		browser: true,
 		es2021: true,
+    jest: true,
 	},
 	// расширение существующих конфигов
 	extends: ["plugin:react/recommended", "plugin:@typescript-eslint/recommended", "airbnb", "plugin:i18next/recommended"],
