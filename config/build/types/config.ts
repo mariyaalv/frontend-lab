@@ -1,6 +1,6 @@
 export type BuildMode = "development" | "production";
 
-export interface BuildPath {
+export interface BuildPaths {
   entry: string; // путь до энтрипойнт
   build: string; // до папки со сборкой
   html: string; // до файла html
@@ -15,7 +15,7 @@ export interface BuildEnv {
 
 export interface BuildOptions {
   mode: BuildMode;
-  paths: BuildPath;
+  paths: BuildPaths;
   isDev: boolean;
   port: number;
 }
