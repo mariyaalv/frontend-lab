@@ -56,12 +56,11 @@ module.exports = {
 	globals: {
 		__IS_DEV__: true,
 	},
-	// попытка зафиксить ошибки импортов модулей стилей при сборке
 	overrides: [
 		{
-			files: ["*.scss", "*.module.scss"],
+			files: ["**/src/**/*.test.{ts,tsx}"],
 			rules: {
-				"import/no-unresolved": "off",
+				"i18next/no-literal-string": "off",
 			},
 		},
 	],
