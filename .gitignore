@@ -1,4 +1,7 @@
 /build
 node_modules
-vscode
+.vscode/*
 /storubook-static
+/extractedTranslations
+.loki/report.html
+.loki/report.json
