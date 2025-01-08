@@ -17,7 +17,7 @@ return (
       </div>
     </Suspense>
   </div>
-);
+  );
 };
 
 export default App;
