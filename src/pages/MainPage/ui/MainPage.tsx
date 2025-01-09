@@ -9,7 +9,7 @@ const MainPage = () => {
       <BugButton />
       {t("Главная страница")}
     </div>
-);
+  );
 };
 
 export default MainPage;

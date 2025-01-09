@@ -11,17 +11,25 @@ interface ModalProps {
   children?: ReactNode;
   isOpen?: boolean;
   onClose?: () => void;
+  lazy?: boolean;
 }
 
 const ANIMATION_DELAY = 300;
 
 export const Modal = ({
- className, children, isOpen, onClose,
+ className, children, isOpen, onClose, lazy,
 }: ModalProps) => {
   const [isClosing, setIsClosing] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  // для управления монтированием
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true);
+    }
+  }, [isOpen]);
+
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
-  // TODO - исправить
-  const { theme } = useTheme();
 
   const closeHandler = useCallback(() => {
     if (onClose) {
@@ -60,6 +68,12 @@ export const Modal = ({
     [cls.opened]: isOpen,
     [cls.isClosing]: isClosing,
   };
+
+  // с флагом lazy модалку в дом дерево не монтируем
+  // для корректного отображения автофокуса в инпуте
+  if (lazy && !isMounted) {
+    return null;
+  }
 
   return (
     <Portal>
