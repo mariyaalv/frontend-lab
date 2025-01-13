@@ -2,7 +2,6 @@ import { classNames } from "shared/lib/classNames/classNames";
 import React, {
  ReactNode, useCallback, useEffect, useRef, useState,
 } from "react";
-import { useTheme } from "app/providers/ThemeProvider";
 import { Portal } from "../Portal/Portal";
 import cls from "./Modal.module.scss";
 
