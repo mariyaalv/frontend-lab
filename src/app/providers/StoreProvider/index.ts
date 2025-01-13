@@ -1,4 +1,6 @@
-import { StateSchema, ReduxStoreWithManager } from "./config/StateSchema";
+import {
+ StateSchema, ReduxStoreWithManager, ThunkExtraArg, ThunkConfig,
+} from "./config/StateSchema";
 import { createReduxStore, AppDispatch } from "./config/store";
 import { StoreProvider } from "./ui/StoreProvider";
 // по FSD импортировать с вышестоящего слоя в нижестоящие - нельзя
@@ -9,4 +11,6 @@ export {
   StateSchema,
   ReduxStoreWithManager,
   AppDispatch,
+  ThunkExtraArg,
+  ThunkConfig,
 };
