@@ -42,6 +42,7 @@ module.exports = {
 		"import/extensions": "off",
 		"import/no-extraneous-dependencies": "off",
 		"no-underscore-dangle": "off",
+    "no-undef": "off",
 		indent: "off",
 		"linebreak-style": 0,
     "i18next/no-literal-string": [

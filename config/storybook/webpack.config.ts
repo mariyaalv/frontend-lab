@@ -12,8 +12,8 @@ export default ({ config }: {config: webpack.Configuration}) => {
         entry: "",
         src: path.resolve(__dirname, "..", "..", "src"),
     };
-    config.resolve.modules.push(paths.src);
-    config.resolve.extensions.push(".ts", ".tsx");
+    config!.resolve!.modules!.push(paths.src);
+    config!.resolve!.extensions!.push(".ts", ".tsx");
 
     // находим правило, которое обрабатывает svg, и исключаем обработку свг для этого правила
     // в обратном случае просто возращаем правило (если оно никак не связано с свг)
@@ -27,7 +27,7 @@ export default ({ config }: {config: webpack.Configuration}) => {
         return rule;
     });
 
-    config.module.rules.push(buildSvgLoader());
+    config!.module!.rules.push(buildSvgLoader());
 
     config!.module!.rules.push(buildCssLoader(true));
 
