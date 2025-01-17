@@ -1,3 +1,9 @@
+import { updateProfileData } from "./model/services/updateProfileData/updateProfileData";
+import { getProfileForm } from "./model/selectors/getProfileForm/getProfileForm";
+import { getProfileReadonly } from "./model/selectors/getProfileReadonly/getProfileReadonly";
+import { getProfileError } from "./model/selectors/getProfileError/getProfileError";
+import { getProfileData } from "./model/selectors/getProfileData/getProfileData";
+import { getProfileIsLoading } from "./model/selectors/getProfileIsLoading/getProfileIsLoading";
 import { fetchProfileData } from "./model/services/fetchProfileData/fetchProfileData";
 import { profileActions, profileReducer } from "./model/slice/profileSlice";
 import { Profile, ProfileSchema } from "./model/types/Profile";
@@ -10,4 +16,10 @@ export {
   profileActions,
   fetchProfileData,
   ProfileCard,
+  getProfileIsLoading,
+  getProfileError,
+  getProfileData,
+  getProfileReadonly,
+  getProfileForm,
+  updateProfileData,
 };
