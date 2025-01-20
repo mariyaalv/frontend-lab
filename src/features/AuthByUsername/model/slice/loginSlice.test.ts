@@ -1,6 +1,5 @@
 import { LoginSchema } from "../types/LoginSchema";
 import { loginActions, loginReducer } from "./loginSlice";
-import { loginByUsername } from "../services/loginByUsername/loginByUsername";
 
 describe("loginSlice", () => {
 // reducers

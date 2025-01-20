@@ -1,39 +1,52 @@
-// import axios from "axios";
-// import { userActions } from "entities/User";
-// import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
-// import { loginByUsername } from "./loginByUsername";
+import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
+import { Currency } from "entities/Currency";
+import { Country } from "entities/Country";
+import { updateProfileData } from "./updateProfileData";
+import { ValidateProfileErrors } from "../../types/Profile";
 
-// jest.mock("axios");
+const form = {
+  username: "admin",
+  age: 24,
+  country: Country.Russia,
+  firstname: "abc",
+  lastname: "abc",
+  city: "abc",
+  currency: Currency.RUB,
+};
 
-// // мокаем не только сам модуль, но и внутренние поля
-// // для TS
-// const mockedAxios = jest.mocked(axios, true);
+describe("updateProfileData", () => {
+  test("success update profile data", async () => {
+    const thunk = new TestAsyncThunk(
+      updateProfileData,
+      { profile: { form } },
+    );
+    thunk.api.put.mockReturnValue(Promise.resolve({ data: form }));
+    const result = await thunk.callThunk();
+    expect(thunk.api.put).toHaveBeenCalled();
+    expect(result.meta.requestStatus).toBe("fulfilled");
+    expect(result.payload).toEqual(form);
+  });
 
-// describe("fetchProfileData", () => {
-//   test("success login", async () => {
-//     const userValue = { username: "123", id: "1" };
-//     mockedAxios.post.mockReturnValue(Promise.resolve({ data: userValue }));
+  test("server error", async () => {
+    const thunk = new TestAsyncThunk(
+      updateProfileData,
+      { profile: { form } },
+    );
+    thunk.api.put.mockReturnValue(Promise.resolve({ status: 403 }));
+    const result = await thunk.callThunk();
 
-//     // создаем отдельный объект
-//     const thunk = new TestAsyncThunk(loginByUsername);
-//     const result = await thunk.callThunk({ username: "123", password: "123" });
+    expect(result.meta.requestStatus).toBe("rejected");
+    expect(result.payload).toEqual([ValidateProfileErrors.SERVER_ERROR]);
+  });
 
-//     expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue));
-//     expect(thunk.dispatch).toHaveBeenCalledTimes(3);
-//     expect(mockedAxios.post).toHaveBeenCalled();
-//     expect(result.meta.requestStatus).toBe("fulfilled");
-//     expect(result.payload).toEqual(userValue);
-//   });
+  test("validate error", async () => {
+    const thunk = new TestAsyncThunk(
+      updateProfileData,
+      { profile: { form: { ...form, lastname: "" } } },
+    );
+    const result = await thunk.callThunk();
 
-//   test("error login", async () => {
-//     mockedAxios.post.mockReturnValue(Promise.resolve({ status: 403 }));
-
-//     const thunk = new TestAsyncThunk(loginByUsername);
-//     const result = await thunk.callThunk({ username: "123", password: "123" });
-
-//     expect(thunk.dispatch).toHaveBeenCalledTimes(2);
-//     expect(mockedAxios.post).toHaveBeenCalled();
-//     expect(result.meta.requestStatus).toBe("rejected");
-//     expect(result.payload).toBe("error");
-//   });
-// });
+    expect(result.meta.requestStatus).toBe("rejected");
+    expect(result.payload).toEqual([ValidateProfileErrors.INCORRECT_USER_DATA]);
+  });
+});

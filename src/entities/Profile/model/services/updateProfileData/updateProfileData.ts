@@ -1,12 +1,13 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkConfig } from "app/providers/StoreProvider";
-import { Profile } from "../../types/Profile";
+import { Profile, ValidateProfileErrors } from "../../types/Profile";
 import { getProfileForm } from "../../selectors/getProfileForm/getProfileForm";
+import { validateProfileData } from "../validateProfileData/validateProfileData";
 
 export const updateProfileData = createAsyncThunk<
   Profile,
   void,
-  ThunkConfig<string>
+  ThunkConfig<ValidateProfileErrors[]>
   >(
   "profile/updateProfileData",
   async (_, thunkApi) => {
@@ -15,14 +16,24 @@ export const updateProfileData = createAsyncThunk<
     // внутри AsyncThunk используем getState
     const formData = getProfileForm(getState());
 
+    const errors = validateProfileData(formData);
+
+    if (errors.length) {
+      return rejectWithValue(errors);
+    }
+
     try {
       // получаем данные с сервака о статусе авторизации
       const response = await extra.api.put<Profile>("/profile", formData);
 
+      if (!response.data) {
+        throw new Error();
+      }
+
       return response.data;
     } catch (e) {
       console.log(e);
-      return rejectWithValue("error");
+      return rejectWithValue([ValidateProfileErrors.SERVER_ERROR]);
     }
   },
 );

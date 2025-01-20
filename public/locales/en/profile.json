@@ -10,5 +10,10 @@
   "Введите ссылку на аватар": "Input avatar link",
   "Ваш аватар": "Your avatar",
   "Произошла ошибка при загрузке профиля": "Upload errorr",
-  "Попробуйте обновить страницу": "Try to update page"
+  "Попробуйте обновить страницу": "Try to update page",
+  "Неккоректный возраст": "Incorrect age",
+  "Некорректный регион": "Incorrect country",
+  "Имя и фамилия обязательны": "First and last name are required",
+  "Данные не указаны": "Data not provided",
+  "Серверная ошибка при сохранении": "Server error while saving"
 }
