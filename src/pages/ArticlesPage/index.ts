@@ -3,5 +3,5 @@ import { ArticleDetailsPageAsync } from "../ArticleDetailsPage/ui/ArticleDetails
 
 export {
   ArticleDetailsPageAsync as ArticleDetailsPage,
-  ArticlePageAsync as ArticlePage,
+  ArticlePageAsync as ArticlesPage,
 };
