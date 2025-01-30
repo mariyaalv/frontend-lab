@@ -3,7 +3,8 @@ import { MainPage } from "pages/MainPage";
 import { ProfilePage } from "pages/ProfilePage";
 import { NotFoundPage } from "pages/NotFoundPage";
 import { RouteProps } from "react-router-dom";
-import { ArticleDetailsPage, ArticlesPage } from "pages/ArticlesPage";
+import { ArticleDetailsPage } from "pages/ArticleDetailsPage";
+import { ArticlesPage } from "pages/ArticlesPage";
 
 export type AppRoutesProps = RouteProps & {
   authOnly?: boolean;
