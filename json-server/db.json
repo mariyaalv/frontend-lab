@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -100,6 +102,30 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "234",
+      "id": "rnTAKa1"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "345",
+      "id": "QD05JND"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "55555",
+      "id": "jr_F3rw"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "helloy",
+      "id": "y-AXECJ"
     }
   ],
   "users": [
@@ -115,18 +141,31 @@
       "username": "user",
       "password": "123",
       "role": "USER",
-      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
-
+      "avatar": "https://www.zastavki.com/pictures/originals/2017Animals___Cats_Little_kitten_with_sticking_out_tongue_119274_.jpg"
     }
   ],
-  "profile": {
-    "firstname": "Мария",
-    "lastname": "Альффф",
-    "age": 24,
-    "currency": "EUR",
-    "country": "Armenia",
-    "city": "Moscow",
-    "username": "admin",
-    "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "firstname": "Мария",
+      "lastname": "Альффф",
+      "age": 24,
+      "currency": "EUR",
+      "country": "Armenia",
+      "city": "Moscow",
+      "username": "admin",
+      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+    },
+    {
+      "id": "2",
+      "firstname": "Мария <3",
+      "lastname": "Альффф",
+      "age": 24,
+      "currency": "EUR",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "mariyaalv",
+      "avatar": "https://www.zastavki.com/pictures/originals/2017Animals___Cats_Little_kitten_with_sticking_out_tongue_119274_.jpg"
+    }
+  ]
 }

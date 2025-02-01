@@ -52,7 +52,6 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
   return (
     // eslint-disable-next-line i18next/no-literal-string
     <DynamicModuleLoader
-      removeAfterUnmount
       reducers={initialReducers}
     >
       <div className={classNames(cls.LoginForm, {}, [className])}>

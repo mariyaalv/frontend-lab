@@ -19,6 +19,8 @@ import { Currency } from "entities/Currency";
 import { Country } from "entities/Country";
 import { Text, TextTheme } from "shared/ui/Text/Text";
 import { useTranslation } from "react-i18next";
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
+import { useParams } from "react-router-dom";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 
 const reducers: ReducersList = {
@@ -39,6 +41,8 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
   const readOnly = useSelector(getProfileReadonly);
   const validateErrors = useSelector(getProfileValidateErrors);
 
+    const { id } = useParams<{id: string}>();
+
   // мапинг
   const validateErrorTranslates = {
     [ValidateProfileErrors.INCORRECT_AGE]: t("Неккоректный возраст"),
@@ -48,11 +52,16 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
   [ValidateProfileErrors.SERVER_ERROR]: t("Серверная ошибка при сохранении"),
   };
 
-  useEffect(() => {
-    if (__PROJECT__ !== "storybook") {
-      dispatch(fetchProfileData());
+  useInitialEffect(() => {
+    if (id) {
+      dispatch(fetchProfileData(id));
     }
-  }, [dispatch]);
+  });
+  // useEffect(() => {
+  //   if (__PROJECT__ !== "storybook") {
+  //     dispatch(fetchProfileData());
+  //   }
+  // }, [dispatch]);
 
   const onChangeFirstname = useCallback((value?: string) => {
     dispatch(profileActions.updateProfile({ firstname: value || "" }));
@@ -87,7 +96,7 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
   }, [dispatch]);
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+    <DynamicModuleLoader reducers={reducers}>
       <div className={classNames("", {}, [className])}>
         <ProfilePageHeader />
         {validateErrors?.length && validateErrors.map((err) => (

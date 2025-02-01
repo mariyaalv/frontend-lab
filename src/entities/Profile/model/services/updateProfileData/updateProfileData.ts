@@ -24,7 +24,10 @@ export const updateProfileData = createAsyncThunk<
 
     try {
       // получаем данные с сервака о статусе авторизации
-      const response = await extra.api.put<Profile>("/profile", formData);
+      const response = await extra.api.put<Profile>(
+        `/profile/${formData?.id}`,
+        formData,
+      );
 
       if (!response.data) {
         throw new Error();
