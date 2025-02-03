@@ -1,3 +1,4 @@
+import { ArticleViewSelector } from "./ui/ArticleViewSelector/ArticleViewSelector";
 import { ArticleList } from "./ui/ArticleList/ArticleList";
 import { getArticleDetailsData } from "./model/selectors/articleDetails";
 import { ArticleDetailsSchema } from "./model/types/ArticleDetailsSchema";
@@ -11,4 +12,5 @@ export {
   ArticleDetailsSchema,
   getArticleDetailsData,
   ArticleList,
+  ArticleViewSelector,
 };
